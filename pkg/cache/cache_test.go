@@ -213,7 +213,73 @@ func TestUpdateCache(t *testing.T) {
 }
 
 func TestCache_AddItem(t *testing.T) {
+	resetItems()
 
+	cases := []struct {
+		name              string
+		getItemTag        string
+		addToBackingStore bool
+		addedData         interface{}
+		items             map[string]*CacheItem
+		expectedItem      *CacheItem
+		expectedUses      int
+		expectedHits      int
+		expectedMisses    int
+	}{
+		{
+			name:              "hit one item:",
+			addToBackingStore: true,
+			getItemTag:        "a",
+			addedData:         itemA.Data,
+			items: map[string]*CacheItem{
+				"a": itemA,
+			},
+			expectedItem: itemA,
+			expectedUses: 1,
+			expectedHits: 1,
+		},
+		{
+			name:              "miss item but not backing store",
+			addToBackingStore: true,
+			getItemTag:        "a",
+			addedData:         itemA.Data,
+			items:             map[string]*CacheItem{},
+			expectedItem:      itemA,
+			expectedUses:      1,
+			expectedMisses:    1,
+		},
+		{
+			name:              "miss item and not backing store",
+			addToBackingStore: false,
+			getItemTag:        "a",
+			addedData:         itemA.Data,
+			items:             map[string]*CacheItem{},
+			expectedItem:      itemA,
+			expectedUses:      1,
+			expectedMisses:    1,
+		},
+	}
+
+	for _, c := range cases {
+		t.Run(c.name, func(t *testing.T) {
+			myCache := NewLRUCacheWithClock(5, fakeClock)
+			myCache.items = c.items
+
+			if c.addToBackingStore {
+				myCache.backingStore.addItem(c.getItemTag, c.addedData)
+			}
+
+			myCache.AddItem(c.getItemTag, c.addedData)
+
+			storedData, ok := myCache.backingStore.getItem(c.getItemTag)
+			assert.True(t, ok)
+			assert.Equal(t, c.addedData, storedData)
+
+			assert.Equal(t, c.expectedUses, myCache.uses)
+			assert.Equal(t, c.expectedHits, myCache.hits)
+			assert.Equal(t, c.expectedMisses, myCache.misses)
+		})
+	}
 }
 
 func TestCache_GetItem(t *testing.T) {
@@ -226,7 +292,7 @@ func TestCache_GetItem(t *testing.T) {
 		storedData        interface{}
 		items             map[string]*CacheItem
 		expectedItem      *CacheItem
-		expecterErr       error
+		expectedErr       error
 		expectedUses      int
 		expectedHits      int
 		expectedMisses    int
@@ -259,7 +325,7 @@ func TestCache_GetItem(t *testing.T) {
 			getItemTag:        "a",
 			storedData:        itemA.Data,
 			items:             map[string]*CacheItem{},
-			expecterErr:       ErrDataNotInBackingStore,
+			expectedErr:       ErrDataNotInBackingStore,
 			expectedItem:      itemA,
 			expectedUses:      1,
 			expectedMisses:    1,
@@ -276,9 +342,9 @@ func TestCache_GetItem(t *testing.T) {
 			}
 
 			item, err := myCache.GetItem(c.getItemTag)
-			if c.expecterErr != nil {
+			if c.expectedErr != nil {
 				assert.Error(t, err)
-				assert.Equal(t, c.expecterErr, err)
+				assert.Equal(t, c.expectedErr, err)
 			} else {
 				assert.NoError(t, err)
 				assert.Equal(t, c.expectedItem, item)

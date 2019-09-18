@@ -84,8 +84,8 @@ func (c *Cache) AddItem(tag string, data interface{}) {
 	}
 
 	// no matter what update cache
+	item = c.updateCache(tag, data)
 	item.updateCacheItemLRU(c.clock)
-	c.updateCache(tag, data)
 	return
 }
 
