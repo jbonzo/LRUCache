@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1bc16566-85b5-49a5-bf74-55550a5f41e3" name="Default Changelist" comment="" />
+    <list default="true" id="1bc16566-85b5-49a5-bf74-55550a5f41e3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/markdown-navigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,14 +18,28 @@
     <option name="delegatedBuild" value="true" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.47424892">
+    <splitter split-orientation="horizontal" split-proportion="0.5064378">
       <split-first>
         <leaf>
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pkg/cache/cache.go">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1373">
-                  <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+                <state relative-caret-position="-208">
+                  <caret line="89" column="1" lean-forward="true" selection-start-line="89" selection-start-column="1" selection-end-line="89" selection-end-column="1" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/README.md">
+              <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+                <state split_layout="SPLIT">
+                  <first_editor relative-caret-position="101">
+                    <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+                  </first_editor>
+                  <second_editor>
+                    <markdownNavigatorState />
+                  </second_editor>
                 </state>
               </provider>
             </entry>
@@ -44,8 +63,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pkg/cache/cache_test.go">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1292">
-                  <caret line="231" column="29" lean-forward="true" selection-start-line="231" selection-start-column="29" selection-end-line="231" selection-end-column="29" />
+                <state relative-caret-position="515">
+                  <caret line="284" column="22" selection-start-line="284" selection-start-column="5" selection-end-line="284" selection-end-column="22" />
                 </state>
               </provider>
             </entry>
@@ -72,16 +91,16 @@
       <list>
         <option value="$PROJECT_DIR$/pkg/cache/idk.go" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_21.go" />
-        <option value="$PROJECT_DIR$/pkg/cache/cache_test.go" />
-        <option value="$PROJECT_DIR$/pkg/cache/cache.go" />
         <option value="$PROJECT_DIR$/cmd/cache/main.go" />
+        <option value="$PROJECT_DIR$/pkg/cache/cache.go" />
+        <option value="$PROJECT_DIR$/pkg/cache/cache_test.go" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="22" />
-    <option name="width" value="1420" />
-    <option name="height" value="878" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -129,7 +148,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.TestCache_GetItem in cache/pkg/cache">
+  <component name="RunManager" selected="Go Test.TestCache_AddItem in cache/pkg/cache">
     <configuration name="go build scratch_21.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="cache" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -140,6 +159,17 @@
       <filePath value="$APPLICATION_CONFIG_DIR$/scratches/scratch_21.go" />
       <package value="cache" />
       <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestCache_AddItem in cache/pkg/cache" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="cache" />
+      <working_directory value="$PROJECT_DIR$/pkg/cache" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="cache/pkg/cache" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestCache_AddItem$" />
       <method v="2" />
     </configuration>
     <configuration name="TestCache_GetItem in cache/pkg/cache" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -176,6 +206,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestCache_AddItem in cache/pkg/cache" />
         <item itemvalue="Go Test.TestCache_GetItem in cache/pkg/cache" />
         <item itemvalue="Go Test.go test cache/pkg/cache" />
         <item itemvalue="Go Build.go build scratch_21.go" />
@@ -193,23 +224,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568828487879</updated>
-      <workItem from="1568828489278" duration="8182000" />
+      <workItem from="1568828489278" duration="9265000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestCache_GetItem_in_cache_pkg_cache - 2019.09.18 at 15h 37m 15s.xml">
-      <configuration name="TestCache_GetItem in cache/pkg/cache" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestCache_GetItem_in_cache_pkg_cache - 2019.09.18 at 15h 38m 13s.xml">
-      <configuration name="TestCache_GetItem in cache/pkg/cache" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestCache_GetItem_in_cache_pkg_cache - 2019.09.18 at 15h 38m 59s.xml">
-      <configuration name="TestCache_GetItem in cache/pkg/cache" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestCache_GetItem_in_cache_pkg_cache - 2019.09.18 at 15h 39m 32s.xml">
-      <configuration name="TestCache_GetItem in cache/pkg/cache" configurationId="GoTestRunConfiguration" />
-    </history-entry>
     <history-entry file="TestCache_GetItem_in_cache_pkg_cache - 2019.09.18 at 15h 39m 35s.xml">
       <configuration name="TestCache_GetItem in cache/pkg/cache" configurationId="GoTestRunConfiguration" />
     </history-entry>
@@ -228,12 +247,24 @@
     <history-entry file="TestCache_GetItem_in_cache_pkg_cache - 2019.09.18 at 15h 41m 50s.xml">
       <configuration name="TestCache_GetItem in cache/pkg/cache" configurationId="GoTestRunConfiguration" />
     </history-entry>
+    <history-entry file="TestCache_AddItem_in_cache_pkg_cache - 2019.09.18 at 19h 31m 12s.xml">
+      <configuration name="TestCache_AddItem in cache/pkg/cache" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestCache_AddItem_in_cache_pkg_cache - 2019.09.18 at 19h 32m 51s.xml">
+      <configuration name="TestCache_AddItem in cache/pkg/cache" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestCache_AddItem_in_cache_pkg_cache - 2019.09.18 at 19h 33m 30s.xml">
+      <configuration name="TestCache_AddItem in cache/pkg/cache" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestCache_AddItem_in_cache_pkg_cache - 2019.09.18 at 19h 34m 27s.xml">
+      <configuration name="TestCache_AddItem in cache/pkg/cache" configurationId="GoTestRunConfiguration" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8182000" />
+    <option name="totallyTimeSpent" value="9265000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="878" extended-state="6" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" />
@@ -243,14 +274,14 @@
       <window_info id="Favorites" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="0" weight="0.24606581" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" weight="0.23536895" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.23493975" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32951653" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.31806615" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29759037" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3994911" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -279,7 +310,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/pkg/cache/cache_test.go</url>
-          <line>277</line>
+          <line>343</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
@@ -364,17 +395,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pkg/cache/cache.go">
+    <entry file="file://$PROJECT_DIR$/pkg/cache/cache_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1373">
-          <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+        <state relative-caret-position="515">
+          <caret line="284" column="22" selection-start-line="284" selection-start-column="5" selection-end-line="284" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pkg/cache/cache_test.go">
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="101">
+            <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/cache/cache.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="231" column="29" lean-forward="true" selection-start-line="231" selection-start-column="29" selection-end-line="231" selection-end-column="29" />
+        <state relative-caret-position="-208">
+          <caret line="89" column="1" lean-forward="true" selection-start-line="89" selection-start-column="1" selection-end-line="89" selection-end-column="1" />
         </state>
       </provider>
     </entry>
