@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	ErrDataNotInBackingStore = errors.New("the data requested is not in the backing backingStore")
+	ErrDataNotInBackingStore = errors.New("the Data requested is not in the backing backingStore")
 )
 
 // make a cache struct
@@ -41,7 +41,7 @@ func NewLRUCacheWithClock(size int, clock clockwork.Clock) *Cache {
 // Cache uses the LRU replacement model to implement an in memory cache
 type Cache struct {
 	size         int
-	items        map[string]*CacheItem // maps item tag to item
+	items        map[string]*CacheItem // maps item Tag to item
 	backingStore *hardStorage
 
 	clock clockwork.Clock
@@ -53,8 +53,8 @@ type Cache struct {
 
 // CacheItem represents an item stored in the cache
 type CacheItem struct {
-	data     interface{}
-	tag      string
+	Data     interface{}
+	Tag      string
 	lastUsed time.Time
 }
 
@@ -68,7 +68,7 @@ func (c *Cache) AddItem(tag string, data interface{}) {
 	if hit {
 		// update item and add to backing backingStore
 		c.hits++
-		item.data = data
+		item.Data = data
 		c.backingStore.addItem(tag, data)
 		item.updateCacheItemLRU(c.clock)
 		return
@@ -89,7 +89,7 @@ func (c *Cache) AddItem(tag string, data interface{}) {
 	return
 }
 
-// GetItem returns the item with the request tag. If not present in any backingStore returns ErrDataNotInBackingStore
+// GetItem returns the item with the request Tag. If not present in any backingStore returns ErrDataNotInBackingStore
 func (c *Cache) GetItem(tag string) (*CacheItem, error) {
 	c.uses++
 
@@ -117,12 +117,12 @@ func (c *Cache) GetItem(tag string) (*CacheItem, error) {
 
 /* -------------------------- Helpers A.K.A. The Meat ----------------------------------------------------- */
 
-// replace cache will create a new item given the tag and data. If the cache is full it will evict the lru.
+// replace cache will create a new item given the Tag and Data. If the cache is full it will evict the lru.
 // returns CacheItem used to update Cache
 func (c *Cache) updateCache(tag string, data interface{}) *CacheItem {
 	newItem := &CacheItem{
-		tag:  tag,
-		data: data,
+		Tag:  tag,
+		Data: data,
 	}
 
 	if len(c.items) >= c.size {
@@ -135,9 +135,9 @@ func (c *Cache) updateCache(tag string, data interface{}) *CacheItem {
 
 // evict removes the evictedResident and replaces it with the newResident
 func (c *Cache) evict(newResident, evictedResident *CacheItem) {
-	// TODO: if we change write policies then we need to account for this logic here to prevent data loss
-	delete(c.items, evictedResident.tag)
-	c.items[newResident.tag] = newResident
+	// TODO: if we change write policies then we need to account for this logic here to prevent Data loss
+	delete(c.items, evictedResident.Tag)
+	c.items[newResident.Tag] = newResident
 }
 
 // searchCache returns the item and whether or not it was found. It also returns the LRU
@@ -148,6 +148,8 @@ func (c *Cache) searchCache(tag string) (item *CacheItem, hit bool) {
 
 // findLRU returns the LeastRecentlyUsed item in the cache
 func (c *Cache) findLRU() *CacheItem {
+	// TODO: change this implementation to use a min Int heap https://golang.org/pkg/container/heap/
+	// to get O(log(n)) time. Currently it takes O(n) time
 	var lru *CacheItem
 
 	curUnixTime := int64(math.MaxInt64)
@@ -178,7 +180,7 @@ func (c *Cache) resetCounters() {
 /* -------------------------------------------------------------------------------------------------------- */
 
 type hardStorage struct {
-	store map[string]interface{} // maps item tag to data
+	store map[string]interface{} // maps item Tag to Data
 }
 
 func (b *hardStorage) addItem(tag string, item interface{}) {

@@ -28,23 +28,23 @@ var (
 
 func resetItems() {
 	itemA = &CacheItem{
-		tag:      "a",
+		Tag:      "a",
 		lastUsed: time0,
 	}
 	itemB = &CacheItem{
-		tag:      "b",
+		Tag:      "b",
 		lastUsed: time1,
 	}
 	itemC = &CacheItem{
-		tag:      "c",
+		Tag:      "c",
 		lastUsed: time2,
 	}
 	itemD = &CacheItem{
-		tag:      "d",
+		Tag:      "d",
 		lastUsed: time3,
 	}
 	itemE = &CacheItem{
-		tag:      "e",
+		Tag:      "e",
 		lastUsed: time4,
 	}
 }
@@ -235,7 +235,7 @@ func TestCache_GetItem(t *testing.T) {
 			name:              "hit one item:",
 			addToBackingStore: true,
 			getItemTag:        "a",
-			storedData:        itemA.data,
+			storedData:        itemA.Data,
 			items: map[string]*CacheItem{
 				"a": itemA,
 			},
@@ -247,7 +247,7 @@ func TestCache_GetItem(t *testing.T) {
 			name:              "miss item but not backing store",
 			addToBackingStore: true,
 			getItemTag:        "a",
-			storedData:        itemA.data,
+			storedData:        itemA.Data,
 			items:             map[string]*CacheItem{},
 			expectedItem:      itemA,
 			expectedUses:      1,
@@ -257,7 +257,7 @@ func TestCache_GetItem(t *testing.T) {
 			name:              "miss item and not backing store",
 			addToBackingStore: false,
 			getItemTag:        "a",
-			storedData:        itemA.data,
+			storedData:        itemA.Data,
 			items:             map[string]*CacheItem{},
 			expecterErr:       ErrDataNotInBackingStore,
 			expectedItem:      itemA,
